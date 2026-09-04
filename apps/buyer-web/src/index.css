@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-slate-100 min-h-screen overflow-x-hidden font-sans;
+    background-color: #000000;
+  }
+}
+
+/* Precision Dark Glass */
+.pitch-card {
+  background: #0A0A0A;
+  border: 1px solid #1F1F1F;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.pitch-card:hover {
+  border-color: #2E2E2E;
+}
+
+.pitch-card-lemon {
+  background: #0D0D0D;
+  border: 1px solid rgba(204, 255, 0, 0.2);
+  box-shadow: 0 0 25px rgba(204, 255, 0, 0.05);
+}
+
+.pitch-card-lemon:hover {
+  border-color: rgba(204, 255, 0, 0.4);
+}
+
+/* Lemon Accent Button */
+.btn-lemon {
+  background: #CCFF00;
+  color: #000000;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+
+.btn-lemon:hover {
+  background: #B8E600;
+  box-shadow: 0 0 20px rgba(204, 255, 0, 0.35);
+}
+
+/* Clean Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CCFF00;
+}
+

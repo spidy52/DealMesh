@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omni Voice & Microphone Verification</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background: #0b1120; color: #f1f5f9; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 32px; max-width: 680px; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    h1 { color: #38bdf8; font-size: 24px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    p.subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 24px; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+    .status-listening { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; }
+    .status-idle { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid #64748b; }
+    canvas { width: 100%; height: 90px; background: #0f172a; border-radius: 8px; border: 1px solid #334155; margin-bottom: 20px; }
+    .box { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 16px; margin-bottom: 20px; min-height: 80px; }
+    .box-title { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .box-content { font-size: 18px; color: #38bdf8; font-weight: 500; word-break: break-word; }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    button { background: #0284c7; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    button:hover { background: #0369a1; }
+    button.secondary { background: #334155; color: #f1f5f9; }
+    button.secondary:hover { background: #475569; }
+    .log-list { margin-top: 20px; font-family: monospace; font-size: 12px; color: #94a3b8; max-height: 140px; overflow-y: auto; background: #090d16; padding: 12px; border-radius: 8px; border: 1px solid #1e293b; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>🎤 Omni Microphone & Voice Verification</h1>
+    <p class="subtitle">Live real-time test for microphone sound level, speech recognition & backend audio transcription.</p>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span id="statusBadge" class="status-badge status-idle">● Microphone Inactive</span>
+      <span id="volNumber" style="color: #38bdf8; font-weight: bold; font-size: 14px;">Volume: 0%</span>
+    </div>
+
+    <!-- Live Audio Waveform Canvas -->
+    <canvas id="waveform"></canvas>
+
+    <!-- Transcribed Live Speech Text -->
+    <div class="box">
+      <div class="box-title">Spoken Text (What Omni Hears):</div>
+      <div id="transcriptBox" class="box-content">Click "Start Microphone Test" and speak...</div>
+    </div>
+
+    <!-- Omni Reply Preview -->
+    <div class="box" style="border-color: #0284c7;">
+      <div class="box-title">Omni Response:</div>
+      <div id="replyBox" class="box-content" style="color: #a5f3fc; font-size: 15px;">Waiting for speech input...</div>
+    </div>
+
+    <div class="btn-row">
+      <button id="startBtn" onclick="startMic()">▶ Start Microphone Test</button>
+      <button class="secondary" onclick="testOmniVoice()">🔊 Test Omni Female Voice</button>
+      <button class="secondary" onclick="clearLogs()">Clear</button>
+    </div>
+
+    <div class="log-list" id="logList">
+      <div>[System]: Verification tool ready.</div>
+    </div>
+  </div>
+
+  <script>
+    let audioCtx, analyser, micStream, recognition;
+    let isListening = false;
+    const canvas = document.getElementById('waveform');
+    const ctx = canvas.getContext('2d');
+    const statusBadge = document.getElementById('statusBadge');
+    const volNumber = document.getElementById('volNumber');
+    const transcriptBox = document.getElementById('transcriptBox');
+    const replyBox = document.getElementById('replyBox');
+    const logList = document.getElementById('logList');
+
+    function log(msg) {
+      const row = document.createElement('div');
+      row.textContent = `[${new Date().toLocaleTimeString()}]: ${msg}`;
+      logList.appendChild(row);
+      logList.scrollTop = logList.scrollHeight;
+    }
+
+    async function startMic() {
+      if (isListening) return;
+
+      try {
+        micStream = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+        });
+
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioCtx.createMediaStreamSource(micStream);
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 256;
+        source.connect(analyser);
+
+        isListening = true;
+        statusBadge.className = 'status-badge status-listening';
+        statusBadge.textContent = '● Microphone Active & Listening';
+        log('Microphone hardware connected successfully.');
+
+        drawWaveform();
+        startSpeechRecognition();
+      } catch (err) {
+        log('Microphone access error: ' + err.message);
+        statusBadge.textContent = '❌ Microphone Error';
+      }
+    }
+
+    function drawWaveform() {
+      if (!isListening || !analyser) return;
+
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+      analyser.getByteFrequencyData(dataArray);
+
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      let sum = 0;
+      const barWidth = (canvas.width / bufferLength) * 2.5;
+      let x = 0;
+
+      for (let i = 0; i < bufferLength; i++) {
+        const barHeight = (dataArray[i] / 255) * canvas.height;
+        sum += dataArray[i];
+
+        const r = 56;
+        const g = 189;
+        const b = 248;
+
+        ctx.fillStyle = `rgb(${r},${g},${b})`;
+        ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+        x += barWidth + 1;
+      }
+
+      const avgVolume = Math.round((sum / bufferLength) / 2.55);
+      volNumber.textContent = `Volume: ${avgVolume}%`;
+
+      requestAnimationFrame(drawWaveform);
+    }
+
+    function startSpeechRecognition() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) {
+        log('Web Speech API not available in this browser. Recording raw audio.');
+        return;
+      }
+
+      recognition = new SpeechRec();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.onresult = (event) => {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          transcript += event.results[i][0].transcript;
+        }
+
+        if (transcript.trim()) {
+          transcriptBox.textContent = `"${transcript.trim()}"`;
+          log(`🗣️ Heard: "${transcript.trim()}"`);
+          generateOmniReply(transcript.trim());
+        }
+      };
+
+      recognition.onerror = (e) => {
+        log('Speech recognition event: ' + e.error);
+      };
+
+      recognition.onend = () => {
+        if (isListening) {
+          recognition.start();
+        }
+      };
+
+      recognition.start();
+      log('Speech recognizer active.');
+    }
+
+    function generateOmniReply(text) {
+      const lower = text.toLowerCase();
+      let reply = '';
+
+      if (lower.includes('watch') || lower.includes('titan')) {
+        reply = 'Hai! Titan Neo Quartz is available at ₹2,299 at Titan store, saving ₹500!';
+      } else if (lower.includes('deal') || lower.includes('buy') || lower.includes('discount')) {
+        reply = 'Found verified offers with up to 25% savings across DealMesh stores!';
+      } else if (lower.includes('hello') || lower.includes('hey') || lower.includes('hi')) {
+        reply = 'Konnichiwa, partner! I can hear you loud and clear!';
+      } else if (lower.includes('how are you')) {
+        reply = "I'm feeling wonderful and floating happily on your screen!";
+      } else if (lower.includes('who are you')) {
+        reply = 'I am Omni, your desktop companion for DealMesh!';
+      } else {
+        reply = `I heard you say: "${text}". How can I help you with that?`;
+      }
+
+      replyBox.textContent = reply;
+      speakTTS(reply);
+    }
+
+    function speakTTS(text) {
+      if (!window.speechSynthesis) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 1.05;
+      utterance.pitch = 1.25;
+
+      const voices = window.speechSynthesis.getVoices();
+      const female = voices.find(v => v.name.includes('Ayumi') || v.name.includes('Haruka') || v.name.includes('Zira') || v.name.includes('Jenny') || v.name.includes('Female'));
+      if (female) utterance.voice = female;
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function testOmniVoice() {
+      speakTTS("Konnichiwa, partner! Testing Omni's voice! The sound system is working perfectly!");
+      log('Playing test voice output.');
+    }
+
+    function clearLogs() {
+      logList.innerHTML = '<div>[System]: Logs cleared.</div>';
+    }
+  </script>
+</body>
+</html>

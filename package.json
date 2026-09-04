@@ -1,0 +1,22 @@
+{
+  "name": "dealmesh-monorepo",
+  "version": "1.0.0",
+  "description": "DealMesh — Two-Sided AI Commerce Network with Buyer Agents, Merchant Agents, DMCP & Razorpay",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:backend": "python -m uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:buyer": "npm run dev --prefix apps/buyer-web",
+    "dev:merchant": "npm run dev --prefix apps/merchant-web",
+    "dev:desktop": "npm run dev --prefix apps/desktop",
+    "dev": "npx concurrently \"npm run dev:backend\" \"npm run dev:buyer\" \"npm run dev:merchant\"",
+    "dev:all": "npx concurrently \"npm run dev:backend\" \"npm run dev:buyer\" \"npm run dev:merchant\" \"npm run dev:desktop\"",
+    "test:backend": "python -m pytest backend/tests -v",
+    "build": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.4"
+  }
+}

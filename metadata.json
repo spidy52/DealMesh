@@ -1,0 +1,29 @@
+{
+  "group_id": "92d61792-2efe-4896-9ce2-f19f9c99223c",
+  "objects": [
+    {
+      "id": "d73c2cdc-1193-4581-83f7-8b497f65d66a",
+      "name": "base",
+      "prompt": "Make something cute from this where it's working like desktop pet or ao assistant for me ",
+      "size": {
+        "width": 170,
+        "height": 170
+      },
+      "directions": 8,
+      "view": "low top-down",
+      "rotations": {
+        "south": "rotations/south.png",
+        "south-east": "rotations/south-east.png",
+        "east": "rotations/east.png",
+        "north-east": "rotations/north-east.png",
+        "north": "rotations/north.png",
+        "north-west": "rotations/north-west.png",
+        "west": "rotations/west.png",
+        "south-west": "rotations/south-west.png"
+      },
+      "animations": {}
+    }
+  ],
+  "export_version": "1.1",
+  "export_date": "2026-09-02T20:51:12.886163"
+}

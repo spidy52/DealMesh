@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0A0E1A] text-slate-100 min-h-screen overflow-x-hidden;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #121829;
+}
+::-webkit-scrollbar-thumb {
+  background: #283554;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+.merchant-panel {
+  background: rgba(18, 24, 41, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(40, 53, 84, 0.7);
+}
