@@ -17,50 +17,46 @@
 
 ---
 
-## 🐶 Meet Omni: The DealMesh AI Companion
+## 🐶 Meet Omni: Your Interactive Git Pet Companion!
 
-Omni is not a boring text input box. Omni is a **living, breathing desktop & web pet companion** that travels with you across the web, watches out for predatory pricing, bargains with merchant bots, and manages purchases within strict safety boundaries you control!
+Omni is the live AI commerce pet you see at the bottom of the DealMesh website and floating on your desktop. Omni roams around, checks deals, negotiates prices, and sleeps when idle.
 
-### 💬 Live Mini-Chatbot & Pet Assistant Widget
+<div align="center">
 
-Here is a live preview of the interactive companion widget running inside DealMesh:
+### 🐾 Live Interactive Companion Preview
 
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│  🐾 OMNI — Personal AI Commerce Companion                     [ — □ ✕ ] │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│       (\__/)         MOOD:   🤩 Hyped & Bargaining                      │
-│      ( ^.^)          STATE:  ⚡ NEGOTIATING (Round 2/3)                 │
-│     c(”)(”)          TARGET: Nike Air Pegasus (UK Size 9)               │
-│                                                                         │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                         │
-│  🤖 TitanBot (Merchant):                                                │
-│     "Welcome! Nike Air Pegasus is listed at ₹4,899. High demand today." │
-│                                                                         │
-│  🐾 Omni (Your Pet):                                                    │
-│     "Hai! My human loves these shoes. We see 3 trusted stores with      │
-│      stock. We propose an immediate deal lock at ₹4,100."               │
-│                                                                         │
-│  🤖 TitanBot:                                                           │
-│     "Counter-offer: We can do ₹4,299 if settled within 120 seconds."    │
-│                                                                         │
-│  🐾 Omni (turning to you):                                              │
-│     "Woof! That saves ₹600 (12% off)! It's within your ₹4,500 budget   │
-│      cap. Shall I lock UK Size 9 and open Razorpay checkout?"           │
-│                                                                         │
-│  👤 You (Voice / Click):                                                │
-│     "Yes Omni, get it!"                                                 │
-│                                                                         │
-│  🐾 Omni:                                                               │
-│     "Done! Selected UK 9, added to cart on Myntra, and generated safe   │
-│      Razorpay test order. Check your screen!" 🎉                        │
-│                                                                         │
-├─────────────────────────────────────────────────────────────────────────┤
-│  [ 🎙️ Voice Active (Silero VAD) ]   [ 🛡️ Spend Cap: ₹5,000 ]   [ 💤 Sleep ] │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+<!-- Default Floating & Roaming State -->
+<img src="./docs/assets/omni-sleeping.svg" width="460" alt="Omni Roaming & Sleeping peacefully in workspace" />
+
+<br/>
+
+<details>
+<summary><b>👉 😴 Omni is Sleeping... Click here to POKE OMNI! 👈</b></summary>
+<br/>
+
+<!-- Angry Poke State Matching Website -->
+<img src="./docs/assets/omni-angry.svg" width="480" alt="Angry Omni - Do not poke me! Say Hey Omni if you want a search!" />
+
+<br/>
+
+> ### 🤖 *"If you want to use me, use the above repo!"*
+> 
+> Omni isn't just an image—Omni is a **fully functional desktop companion and web assistant** running on your computer!  
+> To bring Omni alive on your screen right now:
+> 
+> ```bash
+> git clone https://github.com/spidy52/DealMesh.git
+> cd DealMesh
+> npm install && pip install -r backend/requirements.txt
+> npm run dev:all
+> ```
+> *Say **"Hey Omni"** or click to begin autonomous deal discovery!*
+
+</details>
+
+<p><em>(Omni roams around smoothly, breathes, and dreams of deals. Click the poke trigger above to wake him up!)</em></p>
+
+</div>
 
 ---
 
