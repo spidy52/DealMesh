@@ -21,8 +21,8 @@
 
 <div align="center">
 
-<!-- SINGLE UNIFIED COMPANION PET (Sleeps, wakes up angry when poked, toggles switch off, sleeps again) -->
-<img src="./docs/assets/omni-live.svg" width="540" alt="Omni Live Git Pet - Roams, Sleeps, and Toggles Switch" />
+<!-- LIVING AUTONOMOUS COMPANION PET (Roams, scouts deals, gets sleepy, dreams with floating Z's, and wakes up!) -->
+<img src="./docs/assets/omni-live.svg" width="540" alt="Omni Live Git Pet - Roams, Scouts Deals, and Sleeps" />
 
 <br/><br/>
 
