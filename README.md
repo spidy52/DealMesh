@@ -17,27 +17,12 @@
 
 ---
 
-## 🐶 Meet Omni: The Live Interactive Git Pet!
+## 🐶 Meet Omni: The Live Autonomous Git Pet!
 
 <div align="center">
 
-<!-- 1. SLEEPING & ROAMING (Default State) -->
-<img src="./docs/assets/omni-live.svg" width="540" alt="Omni Roaming & Sleeping peacefully" />
-
-<br/><br/>
-
-<!-- 2. INTERACTIVE BUTTON: Press to make Omni angry, press again to turn off and sleep -->
-<details>
-<summary>
-  <span style="cursor: pointer; display: inline-block; padding: 10px 22px; background: #E11D48; color: #FFFFFF; font-weight: 800; border-radius: 24px; border: 2px solid #FB7185; box-shadow: 0 4px 14px rgba(225,29,72,0.4);">
-    👉 ⚡ [ Poke Omni — Click to Turn On Angry / Turn Off to Sleep ]
-  </span>
-</summary>
-
-<br/>
-
-<!-- When button is pressed: Omni gets angry with exact website dialog! -->
-<img src="./docs/assets/omni-angry.svg?v=2" width="540" alt="Angry Omni - Do not poke me! Say Hey Omni if you want a search!" />
+<!-- SINGLE UNIFIED COMPANION PET (Sleeps, wakes up angry when poked, toggles switch off, sleeps again) -->
+<img src="./docs/assets/omni-live.svg" width="540" alt="Omni Live Git Pet - Roams, Sleeps, and Toggles Switch" />
 
 <br/><br/>
 
@@ -52,9 +37,7 @@
 > npm install && pip install -r backend/requirements.txt
 > npm run dev:all
 > ```
-> *Press the button above again to turn off and let Omni go back to sleep! 💤*
-
-</details>
+> *Say **"Hey Omni"** or launch the desktop app to start autonomous discovery, live negotiation, and verified purchase! 🐾*
 
 </div>
 

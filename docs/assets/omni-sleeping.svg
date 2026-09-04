@@ -1,8 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 340" width="100%" height="340">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 370" width="100%" height="370">
   <defs>
-    <!-- Soft Glow Filters -->
+    <!-- Glow Filters -->
     <filter id="glow-ambient-green" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-ambient-red" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="blur" />
       <feMerge>
         <feMergeNode in="blur" />
         <feMergeNode in="SourceGraphic" />
@@ -15,62 +22,221 @@
         <feMergeNode in="SourceGraphic" />
       </feMerge>
     </filter>
+    <filter id="glow-red-eyes" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
 
     <style><![CDATA[
-      /* Smooth roaming in designated area */
-      @keyframes roamPlayground {
-        0%   { transform: translate(160px, 135px); }
-        20%  { transform: translate(250px, 120px); }
-        40%  { transform: translate(340px, 145px); }
-        60%  { transform: translate(260px, 175px); }
-        80%  { transform: translate(130px, 150px); }
-        100% { transform: translate(160px, 135px); }
+      /* ==========================================================
+         TOTAL MASTER STORY TIMELINE: 14 Seconds Infinite Loop
+         0s - 4.5s:  Sleeping peacefully, floating gently with 3 Z's
+         4.5s:       POKE! The switch flips ON!
+         4.8s - 8.8s: Omni wakes up, enraged, raging shake & dialog
+         8.8s - 10.8s: Omni swoops down, strikes switch OFF!
+         10.8s - 14s: Omni returns to center and falls back asleep
+         ========================================================== */
+
+      @keyframes omniFlight {
+        0%, 30%    { transform: translate(235px, 120px); }
+        32%        { transform: translate(235px, 114px); } /* Flinch on poke */
+        36%, 60%   { transform: translate(235px, 110px); } /* Angry hover */
+        66%        { transform: translate(235px, 218px); } /* Swoop down */
+        72%, 76%   { transform: translate(235px, 226px); } /* Hit switch OFF */
+        82%        { transform: translate(235px, 140px); } /* Fly back up */
+        88%, 100%  { transform: translate(235px, 120px); } /* Back in bed */
       }
-      /* Hovering vertical bob */
+
+      /* Gentle vertical bobbing when resting */
       @keyframes floatBob {
         0%, 100% { transform: translateY(0px); }
         50%      { transform: translateY(-7px); }
       }
-      /* Aura breath */
+
+      /* Shaking rage when angry */
+      @keyframes rageShake {
+        0%   { transform: translate(0px, 0px) rotate(0deg); }
+        20%  { transform: translate(-3px, 2px) rotate(-1.5deg); }
+        40%  { transform: translate(3px, -2px) rotate(1.5deg); }
+        60%  { transform: translate(-3px, -1px) rotate(-1deg); }
+        80%  { transform: translate(3px, 2px) rotate(1deg); }
+        100% { transform: translate(0px, 0px) rotate(0deg); }
+      }
+
+      /* Aura breathing when sleeping */
       @keyframes auraBreath {
         0%, 100% { opacity: 0.35; transform: scale(0.95); }
         50%      { opacity: 0.70; transform: scale(1.10); }
       }
 
-      .roaming-actor {
-        animation: roamPlayground 14s ease-in-out infinite;
+      /* Anger vein pulse */
+      @keyframes veinPulse {
+        0%, 100% { transform: scale(0.90); opacity: 0.75; }
+        50%      { transform: scale(1.22); opacity: 1.0; }
       }
-      .bobbing-body {
+
+      /* SLEEPING LAYER VISIBILITY (Visible 0-31% and 85-100%) */
+      @keyframes sleepVisibility {
+        0%, 31%    { opacity: 1; pointer-events: auto; }
+        34%, 82%   { opacity: 0; pointer-events: none; }
+        85%, 100%  { opacity: 1; pointer-events: auto; }
+      }
+
+      /* ANGRY LAYER VISIBILITY (Visible 35% - 80%) */
+      @keyframes angryVisibility {
+        0%, 33%    { opacity: 0; pointer-events: none; }
+        36%, 78%   { opacity: 1; pointer-events: auto; }
+        82%, 100%  { opacity: 0; pointer-events: none; }
+      }
+
+      /* SWITCH TRACK COLOR */
+      @keyframes switchTrackAnim {
+        0%, 31%    { fill: #0F172A; stroke: #334155; }
+        33%, 74%   { fill: #450A0A; stroke: #EF4444; }
+        76%, 100%  { fill: #0F172A; stroke: #334155; }
+      }
+
+      /* SWITCH KNOB SLIDE */
+      @keyframes switchKnobAnim {
+        0%, 31%    { transform: translate(0px, 0px); fill: #94A3B8; }
+        33%, 74%   { transform: translate(144px, 0px); fill: #EF4444; }
+        76%, 100%  { transform: translate(0px, 0px); fill: #94A3B8; }
+      }
+
+      /* SWITCH TEXT OFF */
+      @keyframes switchTextOffAnim {
+        0%, 31%    { opacity: 1; }
+        33%, 74%   { opacity: 0; }
+        76%, 100%  { opacity: 1; }
+      }
+
+      /* SWITCH TEXT ON */
+      @keyframes switchTextOnAnim {
+        0%, 31%    { opacity: 0; }
+        33%, 74%   { opacity: 1; }
+        76%, 100%  { opacity: 0; }
+      }
+
+      .actor-container {
+        animation: omniFlight 14s ease-in-out infinite;
+      }
+      .bobbing-group {
         animation: floatBob 2.8s ease-in-out infinite;
         transform-origin: 32px 36px;
       }
-      .ambient-green-halo {
+      .raging-group {
+        animation: rageShake 0.35s ease-in-out infinite;
+        transform-origin: 32px 36px;
+      }
+      .green-halo {
         animation: auraBreath 3.2s ease-in-out infinite;
         transform-origin: 32px 36px;
+      }
+      .anger-mark {
+        animation: veinPulse 0.75s ease-in-out infinite;
+        transform-origin: 64px 6px;
+      }
+
+      .layer-sleeping {
+        animation: sleepVisibility 14s ease-in-out infinite;
+      }
+      .layer-angry {
+        animation: angryVisibility 14s ease-in-out infinite;
+      }
+
+      .switch-track {
+        animation: switchTrackAnim 14s ease-in-out infinite;
+      }
+      .switch-knob {
+        animation: switchKnobAnim 14s ease-in-out infinite;
+      }
+      .switch-text-off {
+        animation: switchTextOffAnim 14s ease-in-out infinite;
+      }
+      .switch-text-on {
+        animation: switchTextOnAnim 14s ease-in-out infinite;
       }
     ]]></style>
   </defs>
 
-  <!-- Deep space playground background matching DealMesh website -->
+  <!-- Deep space chamber background -->
   <rect width="100%" height="100%" rx="16" fill="#030712" stroke="#1F2937" stroke-width="1.5" />
 
-  <!-- Subtle starfield/playground dots -->
+  <!-- Subtle starfield dots -->
   <g opacity="0.15" fill="#38BDF8">
-    <circle cx="80" cy="80" r="1.5" />
-    <circle cx="200" cy="65" r="1.5" />
-    <circle cx="340" cy="90" r="1.5" />
-    <circle cx="450" cy="150" r="1.5" />
-    <circle cx="280" cy="250" r="1.5" />
-    <circle cx="110" cy="220" r="1.5" />
+    <circle cx="70" cy="60" r="1.5" />
+    <circle cx="180" cy="45" r="1.5" />
+    <circle cx="370" cy="70" r="1.5" />
+    <circle cx="480" cy="110" r="1.5" />
+    <circle cx="100" cy="200" r="1.5" />
+    <circle cx="440" cy="230" r="1.5" />
   </g>
 
-  <!-- The Robot Actor roaming around in its designated area -->
-  <g class="roaming-actor">
-    <!-- Ambient Holographic Glow Halo -->
-    <ellipse class="ambient-green-halo" cx="32" cy="38" rx="46" ry="46" fill="#84CC16" opacity="0.45" filter="url(#glow-ambient-green)" />
+  <!-- ==========================================================
+       SPEECH BUBBLE (Visible only during Angry Mode: 35% - 80%)
+       ========================================================== -->
+  <g class="layer-angry" transform="translate(65, 20)">
+    <rect x="0" y="0" width="410" height="54" rx="18" fill="#FFF5F5" stroke="#E11D48" stroke-width="2.5" />
+    <!-- Downward pointer arrow pointing at angry Omni -->
+    <polygon points="195,54 215,54 205,66" fill="#FFF5F5" stroke="#E11D48" stroke-width="2.5" stroke-linejoin="round" />
+    <polygon points="194,52 216,52 205,63" fill="#FFF5F5" />
+    <text x="205" y="24" font-family="'Courier New', monospace, sans-serif" font-size="13px" font-weight="900" fill="#1E293B" text-anchor="middle">
+      Do not poke me! Say Hey Omni if
+    </text>
+    <text x="205" y="42" font-family="'Courier New', monospace, sans-serif" font-size="13px" font-weight="900" fill="#1E293B" text-anchor="middle">
+      you want a search!
+    </text>
+  </g>
 
-    <g class="bobbing-body">
-      <!-- 1. EXACT PIXELPET VOXEL ROBOT -->
+  <!-- ==========================================================
+       THE ROBOT ACTOR (Flies, Rages, Hits Switch, Returns)
+       ========================================================== -->
+  <g class="actor-container">
+
+    <!-- A. SLEEPING STATE (Aura, Soft Slits, 3 Floating Z's) -->
+    <g class="layer-sleeping">
+      <ellipse class="green-halo" cx="32" cy="38" rx="46" ry="46" fill="#84CC16" opacity="0.45" filter="url(#glow-ambient-green)" />
+
+      <!-- 3 Staggered Z's (Different sizes, appearing one by one) -->
+      <g>
+        <g transform="translate(34, -10)">
+          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="14px" font-weight="900" fill="#84CC16" filter="url(#glow-green-eyes)">
+            z
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
+            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
+          </text>
+        </g>
+        <g transform="translate(48, -22)">
+          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="19px" font-weight="900" fill="#A3E635" filter="url(#glow-green-eyes)">
+            z
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+          </text>
+        </g>
+        <g transform="translate(64, -36)">
+          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="26px" font-weight="900" fill="#FFFFFF" filter="url(#glow-green-eyes)">
+            Z
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+          </text>
+        </g>
+      </g>
+    </g>
+
+    <!-- B. ANGRY STATE (Red Glowing Aura, Anger Mark) -->
+    <g class="layer-angry">
+      <ellipse cx="32" cy="38" rx="52" ry="52" fill="#EF4444" opacity="0.60" filter="url(#glow-ambient-red)" />
+      <!-- Anger mark veins 💢 pulsing at top right of head -->
+      <g class="anger-mark" transform="translate(62, -4)">
+        <text x="0" y="10" fill="#EF4444" font-size="16" font-weight="black" font-family="sans-serif">💢</text>
+      </g>
+    </g>
+
+    <!-- C. VOXEL ROBOT CHASSIS -->
+    <g class="bobbing-group">
       <g transform="scale(1.35) translate(-4, 0)">
         <!-- Dome Armor -->
         <rect x="24" y="2" width="16" height="4" fill="#FFFFFF" />
@@ -95,10 +261,18 @@
         <rect x="16" y="14" width="32" height="18" fill="#060913" rx="4" />
         <rect x="18" y="16" width="28" height="14" fill="#02040A" />
 
-        <!-- Sleeping Eyes: Soft Closed Eye Slits (Lime Green #84CC16) -->
-        <g filter="url(#glow-green-eyes)">
+        <!-- EYE STATE 1: SLEEPING EYES (Soft Closed Slits #84CC16) -->
+        <g class="layer-sleeping" filter="url(#glow-green-eyes)">
           <rect x="20" y="22" width="9" height="3" rx="1.5" fill="#84CC16" opacity="0.95" />
           <rect x="35" y="22" width="9" height="3" rx="1.5" fill="#84CC16" opacity="0.95" />
+        </g>
+
+        <!-- EYE STATE 2: ANGRY EYES (Fierce Slanted Red Polygons from PixelPet.tsx) -->
+        <g class="layer-angry" filter="url(#glow-red-eyes)">
+          <polygon points="18,18 30,24 28,27 18,21" fill="#EF4444" />
+          <polygon points="46,18 34,24 36,27 46,21" fill="#EF4444" />
+          <rect x="22" y="22" width="4" height="3" fill="#FCA5A5" />
+          <rect x="38" y="22" width="4" height="3" fill="#FCA5A5" />
         </g>
 
         <!-- Lower Torso -->
@@ -107,45 +281,50 @@
         <rect x="46" y="36" width="4" height="14" fill="#64748B" />
         <rect x="42" y="36" width="4" height="14" fill="#94A3B8" />
 
-        <!-- Chest Core (Lime Green) -->
-        <rect x="28" y="40" width="8" height="6" fill="#84CC16" rx="2" filter="url(#glow-green-eyes)" />
-        <rect x="30" y="42" width="4" height="2" fill="#FFFFFF" opacity="0.9" />
+        <!-- Chest Core: Lime Green when sleeping, Red when angry -->
+        <g class="layer-sleeping">
+          <rect x="28" y="40" width="8" height="6" fill="#84CC16" rx="2" filter="url(#glow-green-eyes)" />
+          <rect x="30" y="42" width="4" height="2" fill="#FFFFFF" opacity="0.9" />
+        </g>
+        <g class="layer-angry">
+          <rect x="28" y="40" width="8" height="6" fill="#EF4444" rx="2" filter="url(#glow-red-eyes)" />
+          <rect x="30" y="42" width="4" height="2" fill="#FFFFFF" opacity="0.9" />
+        </g>
 
         <!-- Hover Thrusters (3 Pointed Teeth / Spikes) -->
         <polygon points="16,50 24,50 20,58" fill="#CBD5E1" />
         <polygon points="28,50 36,50 32,58" fill="#FFFFFF" />
         <polygon points="40,50 48,50 44,58" fill="#94A3B8" />
       </g>
+    </g>
+  </g>
 
-      <!-- 2. THREE FLOATING Z PARTICLES (Different sizes, appear one by one, NO speech bubble) -->
-      <g>
-        <!-- 1st Z: Small (14px) - Appears first at 0.0s -->
-        <g transform="translate(34, -10)">
-          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="14px" font-weight="900" fill="#84CC16" filter="url(#glow-green-eyes)">
-            z
-            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
-            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
-          </text>
-        </g>
+  <!-- ==========================================================
+       THE INTERACTIVE TOGGLE SWITCH (Bottom Platform)
+       Flips ON -> Omni comes down -> Hits it OFF -> Goes to sleep!
+       ========================================================== -->
+  <g transform="translate(175, 305)">
+    <!-- Switch Pill Track -->
+    <rect class="switch-track" x="0" y="0" width="190" height="38" rx="19" stroke-width="2" />
 
-        <!-- 2nd Z: Medium (19px) - Appears second at 0.8s -->
-        <g transform="translate(48, -22)">
-          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="19px" font-weight="900" fill="#A3E635" filter="url(#glow-green-eyes)">
-            z
-            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
-            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
-          </text>
-        </g>
+    <!-- Label: SLEEP MODE (ACTIVE) -->
+    <g class="switch-text-off">
+      <text x="110" y="24" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5px" font-weight="800" text-anchor="middle">
+        💤 SLEEPING (OFF)
+      </text>
+    </g>
 
-        <!-- 3rd Z: Large (26px) - Appears third at 1.6s -->
-        <g transform="translate(64, -36)">
-          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="26px" font-weight="900" fill="#FFFFFF" filter="url(#glow-green-eyes)">
-            Z
-            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
-            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
-          </text>
-        </g>
-      </g>
+    <!-- Label: POKED! (ON) -->
+    <g class="switch-text-on">
+      <text x="80" y="24" fill="#FCA5A5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5px" font-weight="900" text-anchor="middle">
+        ⚡ POKED! (ON)
+      </text>
+    </g>
+
+    <!-- Sliding Knob / Thumb -->
+    <g class="switch-knob">
+      <circle cx="20" cy="19" r="14" stroke="#FFFFFF" stroke-width="2" />
+      <path d="M 17,14 L 23,19 L 17,24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
     </g>
   </g>
 </svg>
