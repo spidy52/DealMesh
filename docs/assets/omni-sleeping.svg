@@ -16,7 +16,7 @@
       </feMerge>
     </filter>
 
-    <style>
+    <style><![CDATA[
       /* Smooth roaming in designated area */
       @keyframes roamPlayground {
         0%   { transform: translate(160px, 95px); }
@@ -56,7 +56,7 @@
         animation: auraBreath 3.2s ease-in-out infinite;
         transform-origin: 32px 36px;
       }
-    </style>
+    ]]></style>
   </defs>
 
   <!-- Deep space playground background matching DealMesh website -->

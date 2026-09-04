@@ -30,7 +30,7 @@
       </feMerge>
     </filter>
 
-    <style>
+    <style><![CDATA[
       /* 1. SMOOTH ROAMING IN ITS DESIGNATED AREA */
       @keyframes roamPlayground {
         0%   { transform: translate(160px, 95px); }
@@ -124,7 +124,7 @@
         fill: #450A0A !important;
         stroke: #991B1B !important;
       }
-    </style>
+    ]]></style>
   </defs>
 
   <!-- Deep space playground background matching DealMesh website -->

@@ -21,9 +21,9 @@
 
 <div align="center">
 
-<p><em>Omni roams around in his area and sleeps while guarding your deals. <strong>Touch or Click Omni below to poke him!</strong></em></p>
+<p><em>Omni roams around in his area and sleeps while guarding your deals. <strong>Hover or Click on Omni below to poke him!</strong></em></p>
 
-<!-- SINGLE UNIFIED INTERACTIVE PET (Roams & sleeps; gets angry when touched/clicked) -->
+<!-- SINGLE UNIFIED INTERACTIVE SVG (Roams & sleeps; turns angry when hovered or clicked) -->
 <img src="./docs/assets/omni-pet.svg" width="540" alt="Interactive Omni Pet - Roams, Sleeps, and gets angry when poked!" />
 
 <br/><br/>
