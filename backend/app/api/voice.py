@@ -465,6 +465,8 @@ async def pet_chat(req: ChatRequest):
 
     nlu = await understand_user_intent_with_llm(user_msg, ctx)
     
+    intent = "GENERAL_CHAT"
+    
     # Extract entities from LLM or fallback
     if nlu:
         intent = nlu.get("intent", "GENERAL_CHAT")

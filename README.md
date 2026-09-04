@@ -3,6 +3,7 @@
 [![DMCP Protocol](https://img.shields.io/badge/Protocol-DMCP%201.0-blue.svg?style=for-the-badge)](https://github.com/spidy52/DealMesh)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-009688.svg?style=for-the-badge)](https://fastapi.tiangolo.com)
 [![Electron](https://img.shields.io/badge/Desktop-Electron%20Companion-47848F.svg?style=for-the-badge)](https://www.electronjs.org)
+[![Version](https://img.shields.io/badge/Version-v1.0.0--rc1-10B981.svg?style=for-the-badge)](VERSION.md)
 [![License](https://img.shields.io/badge/License-MIT-purple.svg?style=for-the-badge)](LICENSE)
 
 ---
