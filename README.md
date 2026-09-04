@@ -21,17 +21,30 @@
 
 <div align="center">
 
-<p><em>Omni roams around in his area and sleeps while guarding your deals. <strong>Hover or Click on Omni below to poke him!</strong></em></p>
+<!-- 1. SLEEPING & ROAMING (Default State) -->
+<img src="./docs/assets/omni-sleeping.svg" width="540" alt="Omni Roaming & Sleeping peacefully" />
 
-<!-- SINGLE UNIFIED INTERACTIVE SVG (Roams & sleeps; turns angry when hovered or clicked) -->
-<img src="./docs/assets/omni-pet.svg" width="540" alt="Interactive Omni Pet - Roams, Sleeps, and gets angry when poked!" />
+<br/><br/>
+
+<!-- 2. INTERACTIVE BUTTON: Press to make Omni angry, press again to turn off and sleep -->
+<details>
+<summary>
+  <span style="cursor: pointer; display: inline-block; padding: 10px 22px; background: #E11D48; color: #FFFFFF; font-weight: 800; border-radius: 24px; border: 2px solid #FB7185; box-shadow: 0 4px 14px rgba(225,29,72,0.4);">
+    👉 ⚡ [ Poke Omni — Click to Turn On Angry / Turn Off to Sleep ]
+  </span>
+</summary>
+
+<br/>
+
+<!-- When button is pressed: Omni gets angry with exact website dialog! -->
+<img src="./docs/assets/omni-angry.svg" width="540" alt="Angry Omni - Do not poke me! Say Hey Omni if you want a search!" />
 
 <br/><br/>
 
 > ### 🤖 *"If you want to use me, use the above repo!"*
 > 
-> Omni isn't just a static badge—he is a **living desktop companion and autonomous web buyer**!  
-> To bring Omni alive on your screen right now:
+> Omni is a **living desktop companion and autonomous web buyer**!  
+> To run Omni live on your screen:
 > 
 > ```bash
 > git clone https://github.com/spidy52/DealMesh.git
@@ -39,7 +52,9 @@
 > npm install && pip install -r backend/requirements.txt
 > npm run dev:all
 > ```
-> *Say **"Hey Omni"** or click to start autonomous discovery, live negotiation, and verified purchase!*
+> *Press the button above again to turn off and let Omni go back to sleep! 💤*
+
+</details>
 
 </div>
 
