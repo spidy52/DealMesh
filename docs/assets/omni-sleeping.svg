@@ -31,35 +31,10 @@
         0%, 100% { transform: translateY(0px); }
         50%      { transform: translateY(-7px); }
       }
-      /* Speech bubble float */
-      @keyframes zzzFloat {
-        0%, 100% { transform: translateY(0px); }
-        50%      { transform: translateY(-4px); }
-      }
       /* Aura breath */
       @keyframes auraBreath {
         0%, 100% { opacity: 0.35; transform: scale(0.95); }
         50%      { opacity: 0.70; transform: scale(1.10); }
-      }
-
-      /* 3 Z's appear one by one, floating upward gently */
-      @keyframes z1Float {
-        0%, 10%   { opacity: 0; transform: translateY(6px); }
-        25%       { opacity: 1; transform: translateY(0px); }
-        70%       { opacity: 0.9; transform: translateY(-8px); }
-        90%, 100% { opacity: 0; transform: translateY(-16px); }
-      }
-      @keyframes z2Float {
-        0%, 30%   { opacity: 0; transform: translateY(6px); }
-        45%       { opacity: 1; transform: translateY(0px); }
-        75%       { opacity: 0.9; transform: translateY(-8px); }
-        95%, 100% { opacity: 0; transform: translateY(-16px); }
-      }
-      @keyframes z3Float {
-        0%, 50%   { opacity: 0; transform: translateY(6px); }
-        65%       { opacity: 1; transform: translateY(0px); }
-        85%       { opacity: 0.9; transform: translateY(-8px); }
-        100%      { opacity: 0; transform: translateY(-16px); }
       }
 
       .roaming-actor {
@@ -72,15 +47,6 @@
       .ambient-green-halo {
         animation: auraBreath 3.2s ease-in-out infinite;
         transform-origin: 32px 36px;
-      }
-      .z-particle-1 {
-        animation: z1Float 2.8s ease-in-out infinite;
-      }
-      .z-particle-2 {
-        animation: z2Float 2.8s ease-in-out infinite;
-      }
-      .z-particle-3 {
-        animation: z3Float 2.8s ease-in-out infinite;
       }
     ]]></style>
   </defs>
@@ -104,7 +70,7 @@
     <ellipse class="ambient-green-halo" cx="32" cy="38" rx="46" ry="46" fill="#84CC16" opacity="0.45" filter="url(#glow-ambient-green)" />
 
     <g class="bobbing-body">
-      <!-- 1. EXACT PIXELPET VOXEL ROBOT (Drawn first) -->
+      <!-- 1. EXACT PIXELPET VOXEL ROBOT -->
       <g transform="scale(1.35) translate(-4, 0)">
         <!-- Dome Armor -->
         <rect x="24" y="2" width="16" height="4" fill="#FFFFFF" />
@@ -151,19 +117,33 @@
         <polygon points="40,50 48,50 44,58" fill="#94A3B8" />
       </g>
 
-      <!-- 2. THREE FLOATING Z'S (Different sizes, appearing one by one, NO speech bubble) -->
-      <g class="floating-zzz-group">
-        <!-- 1st z (small) -->
-        <g class="z-particle-1">
-          <text x="32" y="-6" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="13px" font-weight="900" fill="#84CC16" filter="url(#glow-green-eyes)">z</text>
+      <!-- 2. THREE FLOATING Z PARTICLES (Different sizes, appear one by one, NO speech bubble) -->
+      <g>
+        <!-- 1st Z: Small (14px) - Appears first at 0.0s -->
+        <g transform="translate(34, -10)">
+          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="14px" font-weight="900" fill="#84CC16" filter="url(#glow-green-eyes)">
+            z
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
+            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
+          </text>
         </g>
-        <!-- 2nd z (medium) -->
-        <g class="z-particle-2">
-          <text x="44" y="-18" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="18px" font-weight="900" fill="#A3E635" filter="url(#glow-green-eyes)">z</text>
+
+        <!-- 2nd Z: Medium (19px) - Appears second at 0.8s -->
+        <g transform="translate(48, -22)">
+          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="19px" font-weight="900" fill="#A3E635" filter="url(#glow-green-eyes)">
+            z
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+          </text>
         </g>
-        <!-- 3rd Z (large) -->
-        <g class="z-particle-3">
-          <text x="58" y="-32" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="25px" font-weight="900" fill="#FFFFFF" filter="url(#glow-green-eyes)">Z</text>
+
+        <!-- 3rd Z: Large (26px) - Appears third at 1.6s -->
+        <g transform="translate(64, -36)">
+          <text font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="26px" font-weight="900" fill="#FFFFFF" filter="url(#glow-green-eyes)">
+            Z
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+            <animate attributeName="y" values="4;-6;-14;-22" keyTimes="0;0.25;0.75;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+          </text>
         </g>
       </g>
     </g>

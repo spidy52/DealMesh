@@ -22,7 +22,7 @@
 <div align="center">
 
 <!-- 1. SLEEPING & ROAMING (Default State) -->
-<img src="./docs/assets/omni-sleeping.svg?v=2" width="540" alt="Omni Roaming & Sleeping peacefully" />
+<img src="./docs/assets/omni-live.svg" width="540" alt="Omni Roaming & Sleeping peacefully" />
 
 <br/><br/>
 
