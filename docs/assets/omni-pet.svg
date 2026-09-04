@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 340" width="100%" height="340">
+  <defs>
+    <!-- Soft Glow Filters -->
+    <filter id="glow-ambient-green" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="glow-green-eyes" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style><![CDATA[
+      /* Smooth roaming in designated area */
+      @keyframes roamPlayground {
+        0%   { transform: translate(160px, 135px); }
+        20%  { transform: translate(250px, 120px); }
+        40%  { transform: translate(340px, 145px); }
+        60%  { transform: translate(260px, 175px); }
+        80%  { transform: translate(130px, 150px); }
+        100% { transform: translate(160px, 135px); }
+      }
+      /* Hovering vertical bob */
+      @keyframes floatBob {
+        0%, 100% { transform: translateY(0px); }
+        50%      { transform: translateY(-7px); }
+      }
+      /* Speech bubble float */
+      @keyframes zzzFloat {
+        0%, 100% { transform: translateY(0px); }
+        50%      { transform: translateY(-4px); }
+      }
+      /* Aura breath */
+      @keyframes auraBreath {
+        0%, 100% { opacity: 0.35; transform: scale(0.95); }
+        50%      { opacity: 0.70; transform: scale(1.10); }
+      }
+
+      /* 3 Z's appear one by one, floating upward gently */
+      @keyframes z1Float {
+        0%, 10%   { opacity: 0; transform: translateY(6px); }
+        25%       { opacity: 1; transform: translateY(0px); }
+        70%       { opacity: 0.9; transform: translateY(-8px); }
+        90%, 100% { opacity: 0; transform: translateY(-16px); }
+      }
+      @keyframes z2Float {
+        0%, 30%   { opacity: 0; transform: translateY(6px); }
+        45%       { opacity: 1; transform: translateY(0px); }
+        75%       { opacity: 0.9; transform: translateY(-8px); }
+        95%, 100% { opacity: 0; transform: translateY(-16px); }
+      }
+      @keyframes z3Float {
+        0%, 50%   { opacity: 0; transform: translateY(6px); }
+        65%       { opacity: 1; transform: translateY(0px); }
+        85%       { opacity: 0.9; transform: translateY(-8px); }
+        100%      { opacity: 0; transform: translateY(-16px); }
+      }
+
+      .roaming-actor {
+        animation: roamPlayground 14s ease-in-out infinite;
+      }
+      .bobbing-body {
+        animation: floatBob 2.8s ease-in-out infinite;
+        transform-origin: 32px 36px;
+      }
+      .ambient-green-halo {
+        animation: auraBreath 3.2s ease-in-out infinite;
+        transform-origin: 32px 36px;
+      }
+      .z-particle-1 {
+        animation: z1Float 2.8s ease-in-out infinite;
+      }
+      .z-particle-2 {
+        animation: z2Float 2.8s ease-in-out infinite;
+      }
+      .z-particle-3 {
+        animation: z3Float 2.8s ease-in-out infinite;
+      }
+    ]]></style>
+  </defs>
+
+  <!-- Deep space playground background matching DealMesh website -->
+  <rect width="100%" height="100%" rx="16" fill="#030712" stroke="#1F2937" stroke-width="1.5" />
+
+  <!-- Subtle starfield/playground dots -->
+  <g opacity="0.15" fill="#38BDF8">
+    <circle cx="80" cy="80" r="1.5" />
+    <circle cx="200" cy="65" r="1.5" />
+    <circle cx="340" cy="90" r="1.5" />
+    <circle cx="450" cy="150" r="1.5" />
+    <circle cx="280" cy="250" r="1.5" />
+    <circle cx="110" cy="220" r="1.5" />
+  </g>
+
+  <!-- The Robot Actor roaming around in its designated area -->
+  <g class="roaming-actor">
+    <!-- Ambient Holographic Glow Halo -->
+    <ellipse class="ambient-green-halo" cx="32" cy="38" rx="46" ry="46" fill="#84CC16" opacity="0.45" filter="url(#glow-ambient-green)" />
+
+    <g class="bobbing-body">
+      <!-- 1. EXACT PIXELPET VOXEL ROBOT (Drawn first) -->
+      <g transform="scale(1.35) translate(-4, 0)">
+        <!-- Dome Armor -->
+        <rect x="24" y="2" width="16" height="4" fill="#FFFFFF" />
+        <rect x="20" y="4" width="24" height="4" fill="#F8FAFC" />
+        <rect x="18" y="4" width="4" height="4" fill="#E2E8F0" />
+        <rect x="42" y="4" width="4" height="4" fill="#94A3B8" />
+
+        <!-- Cat/Robot Corner Ears -->
+        <polygon points="16,8 22,2 24,8" fill="#FFFFFF" />
+        <polygon points="18,7 22,3 23,7" fill="#84CC16" />
+        <polygon points="48,8 42,2 40,8" fill="#94A3B8" />
+        <polygon points="46,7 42,3 41,7" fill="#84CC16" />
+
+        <!-- Head Shell -->
+        <rect x="14" y="8" width="36" height="26" fill="#FFFFFF" rx="4" />
+        <rect x="12" y="10" width="4" height="22" fill="#F1F5F9" />
+        <rect x="14" y="8" width="4" height="24" fill="#E2E8F0" />
+        <rect x="46" y="10" width="6" height="22" fill="#64748B" />
+        <rect x="42" y="8" width="4" height="24" fill="#94A3B8" />
+
+        <!-- Visor Cavity -->
+        <rect x="16" y="14" width="32" height="18" fill="#060913" rx="4" />
+        <rect x="18" y="16" width="28" height="14" fill="#02040A" />
+
+        <!-- Sleeping Eyes: Soft Closed Eye Slits (Lime Green #84CC16) -->
+        <g filter="url(#glow-green-eyes)">
+          <rect x="20" y="22" width="9" height="3" rx="1.5" fill="#84CC16" opacity="0.95" />
+          <rect x="35" y="22" width="9" height="3" rx="1.5" fill="#84CC16" opacity="0.95" />
+        </g>
+
+        <!-- Lower Torso -->
+        <rect x="14" y="36" width="36" height="14" fill="#FFFFFF" />
+        <rect x="12" y="36" width="4" height="14" fill="#E2E8F0" />
+        <rect x="46" y="36" width="4" height="14" fill="#64748B" />
+        <rect x="42" y="36" width="4" height="14" fill="#94A3B8" />
+
+        <!-- Chest Core (Lime Green) -->
+        <rect x="28" y="40" width="8" height="6" fill="#84CC16" rx="2" filter="url(#glow-green-eyes)" />
+        <rect x="30" y="42" width="4" height="2" fill="#FFFFFF" opacity="0.9" />
+
+        <!-- Hover Thrusters (3 Pointed Teeth / Spikes) -->
+        <polygon points="16,50 24,50 20,58" fill="#CBD5E1" />
+        <polygon points="28,50 36,50 32,58" fill="#FFFFFF" />
+        <polygon points="40,50 48,50 44,58" fill="#94A3B8" />
+      </g>
+
+      <!-- 2. THREE FLOATING Z'S (Different sizes, appearing one by one, NO speech bubble) -->
+      <g class="floating-zzz-group">
+        <!-- 1st z (small) -->
+        <g class="z-particle-1">
+          <text x="32" y="-6" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="13px" font-weight="900" fill="#84CC16" filter="url(#glow-green-eyes)">z</text>
+        </g>
+        <!-- 2nd z (medium) -->
+        <g class="z-particle-2">
+          <text x="44" y="-18" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="18px" font-weight="900" fill="#A3E635" filter="url(#glow-green-eyes)">z</text>
+        </g>
+        <!-- 3rd Z (large) -->
+        <g class="z-particle-3">
+          <text x="58" y="-32" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="25px" font-weight="900" fill="#FFFFFF" filter="url(#glow-green-eyes)">Z</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

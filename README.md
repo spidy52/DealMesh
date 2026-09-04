@@ -22,7 +22,7 @@
 <div align="center">
 
 <!-- 1. SLEEPING & ROAMING (Default State) -->
-<img src="./docs/assets/omni-sleeping.svg" width="540" alt="Omni Roaming & Sleeping peacefully" />
+<img src="./docs/assets/omni-sleeping.svg?v=2" width="540" alt="Omni Roaming & Sleeping peacefully" />
 
 <br/><br/>
 
@@ -37,7 +37,7 @@
 <br/>
 
 <!-- When button is pressed: Omni gets angry with exact website dialog! -->
-<img src="./docs/assets/omni-angry.svg" width="540" alt="Angry Omni - Do not poke me! Say Hey Omni if you want a search!" />
+<img src="./docs/assets/omni-angry.svg?v=2" width="540" alt="Angry Omni - Do not poke me! Say Hey Omni if you want a search!" />
 
 <br/><br/>
 
