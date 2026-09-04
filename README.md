@@ -1,18 +1,15 @@
 # 🐾 DealMesh — Your Autonomous AI Buyer, Everywhere! 🚀
 
 > **"One AI Buyer. Every Store. Zero Overpaying."**  
-> *Track 01: AI Growth & Agentic Commerce — Powered by DMCP & Razorpay*
+> *Track 01: AI Growth & Agentic Commerce — Powered by DMCP*
 
-```
-       (\__/)      ✨ "Woof! I'm Omni!
-       ( •ᴥ•)         Tell me what you want,
-      / >🛍️ \        and I'll sniff out the best deal!"
-```
+<div align="center">
+  <img src="./docs/assets/omni-dino.svg" width="680" alt="Omni Dino Runner - Autonomous Deal Sniffer" />
+</div>
 
 [![DMCP Protocol](https://img.shields.io/badge/Protocol-DMCP%201.0-blue.svg?style=for-the-badge)](https://github.com/spidy52/DealMesh)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-009688.svg?style=for-the-badge)](https://fastapi.tiangolo.com)
 [![Electron](https://img.shields.io/badge/Desktop-Electron%20Companion-47848F.svg?style=for-the-badge)](https://www.electronjs.org)
-[![Payments](https://img.shields.io/badge/Payments-Razorpay%20Test%20Mode-0C2340.svg?style=for-the-badge)](https://razorpay.com)
 [![License](https://img.shields.io/badge/License-MIT-purple.svg?style=for-the-badge)](LICENSE)
 
 ---
