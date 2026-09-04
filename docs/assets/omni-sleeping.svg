@@ -19,12 +19,12 @@
     <style><![CDATA[
       /* Smooth roaming in designated area */
       @keyframes roamPlayground {
-        0%   { transform: translate(160px, 95px); }
-        20%  { transform: translate(250px, 65px); }
-        40%  { transform: translate(340px, 105px); }
-        60%  { transform: translate(260px, 145px); }
-        80%  { transform: translate(130px, 115px); }
-        100% { transform: translate(160px, 95px); }
+        0%   { transform: translate(160px, 135px); }
+        20%  { transform: translate(250px, 120px); }
+        40%  { transform: translate(340px, 145px); }
+        60%  { transform: translate(260px, 175px); }
+        80%  { transform: translate(130px, 150px); }
+        100% { transform: translate(160px, 135px); }
       }
       /* Hovering vertical bob */
       @keyframes floatBob {
@@ -42,6 +42,26 @@
         50%      { opacity: 0.70; transform: scale(1.10); }
       }
 
+      /* 3 Z's appear one by one, floating upward gently */
+      @keyframes z1Float {
+        0%, 10%   { opacity: 0; transform: translateY(6px); }
+        25%       { opacity: 1; transform: translateY(0px); }
+        70%       { opacity: 0.9; transform: translateY(-8px); }
+        90%, 100% { opacity: 0; transform: translateY(-16px); }
+      }
+      @keyframes z2Float {
+        0%, 30%   { opacity: 0; transform: translateY(6px); }
+        45%       { opacity: 1; transform: translateY(0px); }
+        75%       { opacity: 0.9; transform: translateY(-8px); }
+        95%, 100% { opacity: 0; transform: translateY(-16px); }
+      }
+      @keyframes z3Float {
+        0%, 50%   { opacity: 0; transform: translateY(6px); }
+        65%       { opacity: 1; transform: translateY(0px); }
+        85%       { opacity: 0.9; transform: translateY(-8px); }
+        100%      { opacity: 0; transform: translateY(-16px); }
+      }
+
       .roaming-actor {
         animation: roamPlayground 14s ease-in-out infinite;
       }
@@ -49,12 +69,18 @@
         animation: floatBob 2.8s ease-in-out infinite;
         transform-origin: 32px 36px;
       }
-      .speech-zzz-bubble {
-        animation: zzzFloat 2.8s ease-in-out infinite;
-      }
       .ambient-green-halo {
         animation: auraBreath 3.2s ease-in-out infinite;
         transform-origin: 32px 36px;
+      }
+      .z-particle-1 {
+        animation: z1Float 2.8s ease-in-out infinite;
+      }
+      .z-particle-2 {
+        animation: z2Float 2.8s ease-in-out infinite;
+      }
+      .z-particle-3 {
+        animation: z3Float 2.8s ease-in-out infinite;
       }
     ]]></style>
   </defs>
@@ -72,25 +98,13 @@
     <circle cx="110" cy="220" r="1.5" />
   </g>
 
-
   <!-- The Robot Actor roaming around in its designated area -->
   <g class="roaming-actor">
     <!-- Ambient Holographic Glow Halo -->
     <ellipse class="ambient-green-halo" cx="32" cy="38" rx="46" ry="46" fill="#84CC16" opacity="0.45" filter="url(#glow-ambient-green)" />
 
     <g class="bobbing-body">
-      <!-- SPEECH BUBBLE: "Zzz..." (Positioned cleanly ABOVE and to the right of the head with zero overlap) -->
-      <g class="speech-zzz-bubble" transform="translate(18, -46)">
-        <!-- Bubble pill -->
-        <rect x="0" y="0" width="76" height="32" rx="16" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.5" />
-        <!-- Comic speech tail pointing down toward the robot head -->
-        <polygon points="20,31 34,31 16,42" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.5" stroke-linejoin="round" />
-        <polygon points="19,29 35,29 17,40" fill="#FFFFFF" />
-        <!-- Bold centered text -->
-        <text x="38" y="22" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="15px" font-weight="900" fill="#0F172A" text-anchor="middle">Zzz...</text>
-      </g>
-
-      <!-- EXACT PIXELPET VOXEL ROBOT (from PixelPet.tsx) -->
+      <!-- 1. EXACT PIXELPET VOXEL ROBOT (Drawn first) -->
       <g transform="scale(1.35) translate(-4, 0)">
         <!-- Dome Armor -->
         <rect x="24" y="2" width="16" height="4" fill="#FFFFFF" />
@@ -135,6 +149,22 @@
         <polygon points="16,50 24,50 20,58" fill="#CBD5E1" />
         <polygon points="28,50 36,50 32,58" fill="#FFFFFF" />
         <polygon points="40,50 48,50 44,58" fill="#94A3B8" />
+      </g>
+
+      <!-- 2. THREE FLOATING Z'S (Different sizes, appearing one by one, NO speech bubble) -->
+      <g class="floating-zzz-group">
+        <!-- 1st z (small) -->
+        <g class="z-particle-1">
+          <text x="32" y="-6" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="13px" font-weight="900" fill="#84CC16" filter="url(#glow-green-eyes)">z</text>
+        </g>
+        <!-- 2nd z (medium) -->
+        <g class="z-particle-2">
+          <text x="44" y="-18" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="18px" font-weight="900" fill="#A3E635" filter="url(#glow-green-eyes)">z</text>
+        </g>
+        <!-- 3rd Z (large) -->
+        <g class="z-particle-3">
+          <text x="58" y="-32" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="25px" font-weight="900" fill="#FFFFFF" filter="url(#glow-green-eyes)">Z</text>
+        </g>
       </g>
     </g>
   </g>
