@@ -1,12 +1,5 @@
 # 🐾 DealMesh — Your Autonomous AI Buyer, Everywhere! 🚀
 
-> **"One AI Buyer. Every Store. Zero Overpaying."**  
-> *Track 01: AI Growth & Agentic Commerce — Powered by DMCP*
-
-<div align="center">
-  <img src="./docs/assets/omni-dino.svg" width="680" alt="Omni Dino Runner - Autonomous Deal Sniffer" />
-</div>
-
 [![DMCP Protocol](https://img.shields.io/badge/Protocol-DMCP%201.0-blue.svg?style=for-the-badge)](https://github.com/spidy52/DealMesh)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-009688.svg?style=for-the-badge)](https://fastapi.tiangolo.com)
 [![Electron](https://img.shields.io/badge/Desktop-Electron%20Companion-47848F.svg?style=for-the-badge)](https://www.electronjs.org)
@@ -188,6 +181,16 @@ This spins up:
 2. 🛡️ **No Direct LLM Spending**: Hardcoded policy firewalls block unauthorized transactions.
 3. 📜 **Tamper-Proof Offers**: Cryptographically signed offer hashes with expiring time-to-live (TTL).
 4. 🔇 **Local Audio Gating**: Client-side VAD processes voice only when you speak.
+
+---
+
+## 🎮 Omni's 8-Bit Deal Runner
+
+<div align="center">
+  <img src="./docs/assets/omni-dino.svg" width="680" alt="Omni 8-Bit Dino Runner - Jumping Over Markups" />
+</div>
+
+<p align="center"><em>Omni runs 24/7 across 20+ store engines, leaping over hidden markups (<strong style="color: #EF4444;">$$$</strong>) and grabbing verified deals (<strong style="color: #10B981;">🛍️</strong>)!</em></p>
 
 ---
 

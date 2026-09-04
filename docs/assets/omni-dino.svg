@@ -110,21 +110,15 @@
   <rect width="100%" height="100%" rx="14" fill="#030712" stroke="#1F2937" stroke-width="1.5" />
 
   <!-- ==========================================================
-       HEADER: Tagline & Hackathon Track Badge (NO Razorpay)
+       HEADER: Retro Arcade Title & High Score Ticker
        ========================================================== -->
   <g transform="translate(24, 20)">
-    <!-- Tagline -->
-    <text x="0" y="16" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5px" font-weight="900" letter-spacing="0.3px">
-      &quot;One AI Buyer. Every Store. Zero Overpaying.&quot;
-    </text>
-
-    <!-- Track Badge (Razorpay removed cleanly) -->
-    <text x="0" y="34" fill="#38BDF8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5px" font-weight="700">
-      <tspan fill="#A855F7">Track 01:</tspan> AI Growth &amp; Agentic Commerce — <tspan fill="#F59E0B">Powered by DMCP Protocol</tspan>
+    <text x="0" y="22" fill="#38BDF8" font-family="'Courier New', monospace, -apple-system, sans-serif" font-size="14px" font-weight="900" letter-spacing="1px">
+      🎮 OMNI'S 8-BIT DEAL RUNNER
     </text>
 
     <!-- Retro 8-bit High Score Ticker (Top Right) -->
-    <text x="632" y="24" fill="#64748B" font-family="'Courier New', monospace, sans-serif" font-size="11.5px" font-weight="900" text-anchor="end">
+    <text x="632" y="22" fill="#64748B" font-family="'Courier New', monospace, sans-serif" font-size="12px" font-weight="900" text-anchor="end">
       HI <tspan fill="#94A3B8">09999</tspan>   <tspan fill="#84CC16">DEALS 00420</tspan>
     </text>
   </g>
