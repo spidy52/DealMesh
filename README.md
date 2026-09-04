@@ -43,22 +43,6 @@
 
 </div>
 
----
-
-## 🎭 Omni's 8 Expressive Pet States
-
-Omni has **34 custom animated emotion rotations** that react to what's happening in real time:
-
-| State | Pet Emotion | What Omni is Doing |
-|:---|:---:|:---|
-| `SLEEPING` | 💤 *Zzz...* | Resting quietly on your taskbar until you speak or click. |
-| `LISTENING` | 👂 *Curious* | Ultra-low latency voice detection with instant speech barge-in. |
-| `SEARCHING` | 👃 *Sniffing* | Sniffing out deals concurrently across 12+ stores in parallel. |
-| `COMPARING` | 🧐 *Thinking* | Ranking real value (speed + returns + seller trust) over raw fake price. |
-| `NEGOTIATING` | ⚡ *Smug & Fast*| Exchanging structured DMCP counter-offers with merchant agents. |
-| `NEED_HELP` | 🐾 *Pleading* | Pauses on shoe/clothing pages to ask: *"Which size should I pick?"* |
-| `PAYING` | 💳 *Focused* | Validates deterministic policy rules and opens Razorpay Test Mode. |
-| `CELEBRATING` | 🎉 *StarStruck*| Deal sealed! Mints your cryptographic Transaction Passport. |
 
 ---
 
