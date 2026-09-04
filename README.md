@@ -200,19 +200,6 @@ This spins up:
 * 🟠 **Merchant Studio**: [`http://localhost:5174`](http://localhost:5174)
 * 🐾 **Electron Desktop Pet Companion**: Native floating Omni on your screen!
 
----
-
-## 🎬 5-Minute Hackathon Demo Script
-
-| Time | Action | What Happens / What to Tell the Judges |
-|:---|:---|:---|
-| **0:00 - 0:30** | **Meet Omni** | Omni sits resting on screen. Say: *"Omni, find Nike running shoes under ₹5,000."* Omni wakes up with an animation and acknowledges verbally! |
-| **0:30 - 1:15** | **12-Store Search** | Omni queries 12 stores concurrently. Show the trust & value rankings—not just cheapest, but best return policy and authentic reviews. |
-| **1:15 - 2:15** | **Live Browser Navigation** | Select Myntra. Watch real Playwright launch headed browser, navigate to the shoe, and discover the size grid. |
-| **2:15 - 2:45** | **Variant Disambiguation** | Omni asks: *"Which size should I pick: 8, 9, or 10?"* Say: *"UK 9"*. Omni clicks Size 9 and adds to bag on-screen! |
-| **2:45 - 3:45** | **DMCP Negotiation Arena** | Open Split-Screen view. Watch Omni negotiate price concessions with TitanBot in 3 rapid structured rounds without leaking budget ceilings! |
-| **3:45 - 4:30** | **Policy Gate & Checkout** | Click Buy. Deterministic policy firewall approves budget $\rightarrow$ Razorpay Test Mode checkout opens $\rightarrow$ Payment confirmed! |
-| **4:30 - 5:00** | **Transaction Passport** | View the minted cryptographic Transaction Passport proving every round, policy check, and settlement event. Omni returns to sleep happily! 💤 |
 
 ---
 
