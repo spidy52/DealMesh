@@ -1,113 +1,174 @@
-# DealMesh — Autonomous AI Commerce Network
+# 🐾 DealMesh — Your Autonomous AI Buyer, Everywhere! 🚀
 
-> **One AI Buyer. Every Store. Better Decisions.**  
-> *Track 01: AI Growth & Agentic Commerce*
+> **"One AI Buyer. Every Store. Zero Overpaying."**  
+> *Track 01: AI Growth & Agentic Commerce — Powered by DMCP & Razorpay*
 
-[![DMCP Protocol](https://img.shields.io/badge/Protocol-DMCP%201.0-blue.svg)](https://github.com/spidy52/DealMesh)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python%203.11-009688.svg)](https://fastapi.tiangolo.com)
-[![Electron](https://img.shields.io/badge/Desktop-Electron%20%2B%20React%20%2B%20Vite-47848F.svg)](https://www.electronjs.org)
-[![Payments](https://img.shields.io/badge/Payments-Razorpay%20Test%20Mode-0C2340.svg)](https://razorpay.com)
-[![Security](https://img.shields.io/badge/Security-Zero--Knowledge%20Policy%20Firewall-green.svg)](https://github.com/spidy52/DealMesh)
+```
+       (\__/)      ✨ "Woof! I'm Omni!
+       ( •ᴥ•)         Tell me what you want,
+      / >🛍️ \        and I'll sniff out the best deal!"
+```
+
+[![DMCP Protocol](https://img.shields.io/badge/Protocol-DMCP%201.0-blue.svg?style=for-the-badge)](https://github.com/spidy52/DealMesh)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-009688.svg?style=for-the-badge)](https://fastapi.tiangolo.com)
+[![Electron](https://img.shields.io/badge/Desktop-Electron%20Companion-47848F.svg?style=for-the-badge)](https://www.electronjs.org)
+[![Payments](https://img.shields.io/badge/Payments-Razorpay%20Test%20Mode-0C2340.svg?style=for-the-badge)](https://razorpay.com)
+[![License](https://img.shields.io/badge/License-MIT-purple.svg?style=for-the-badge)](LICENSE)
 
 ---
 
-## 🌟 Overview
+## 🐶 Meet Omni: The DealMesh AI Companion
 
-**DealMesh** is a two-sided autonomous commerce platform where AI Buyer Agents and AI Merchant Agents discover each other, negotiate terms, resolve product variants, and settle transactions safely.
+Omni is not a boring text input box. Omni is a **living, breathing desktop & web pet companion** that travels with you across the web, watches out for predatory pricing, bargains with merchant bots, and manages purchases within strict safety boundaries you control!
 
-Instead of an LLM blindly purchasing products with unrestricted payment access, DealMesh introduces **DMCP (DealMesh Commerce Protocol)** and a strict **Propose-Validate-Execute** separation. AI reasoning proposes actions, while deterministic policy, risk, inventory, and escrow firewalls guarantee that private budgets are never leaked and financial authority is never exceeded.
+### 💬 Live Mini-Chatbot & Pet Assistant Widget
+
+Here is a live preview of the interactive companion widget running inside DealMesh:
 
 ```text
-                                 DEALMESH NETWORK
-                                        │
-           ┌────────────────────────────┴────────────────────────────┐
-           ▼                                                         ▼
-     BUYER ECOSYSTEM                                         MERCHANT ECOSYSTEM
-  ┌───────────────────────┐                               ┌───────────────────────┐
-  │ 🐾 Omni Companion Pet │                               │ 🏪 Merchant Studio    │
-  │ • Floating Electron UI│                               │ • Policy Floors       │
-  │ • Real-time Voice/VAD │                               │ • Live Concession API │
-  │ • Local Budget Limits │                               │ • Dynamic Inventory   │
-  └──────────┬────────────┘                               └───────────┬───────────┘
-             │                                                        │
-             ▼                                                        ▼
-      Buyer AI Agent                                           Merchant AI Agent
-      (Proposes Offer)                                        (Evaluates Margins)
-             │                                                        │
-             └─────────────► [ DMCP 1.0 SECURE PROTOCOL ] ◄───────────┘
-                                        │
-                                        ▼
-                      Deterministic Safety & Policy Firewall
-                          (Zero-Leakage Budget & Margin)
-                                        │
-                                        ▼
-                         Headed / Live Web Automation
-                         (Dynamic Variant Disambiguation)
-                                        │
-                                        ▼
-                          Razorpay Test Mode Settlement
-                                        │
-                                        ▼
-                          Minted Transaction Passport
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🐾 OMNI — Personal AI Commerce Companion                     [ — □ ✕ ] │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│       (\__/)         MOOD:   🤩 Hyped & Bargaining                      │
+│      ( ^.^)          STATE:  ⚡ NEGOTIATING (Round 2/3)                 │
+│     c(”)(”)          TARGET: Nike Air Pegasus (UK Size 9)               │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  🤖 TitanBot (Merchant):                                                │
+│     "Welcome! Nike Air Pegasus is listed at ₹4,899. High demand today." │
+│                                                                         │
+│  🐾 Omni (Your Pet):                                                    │
+│     "Hai! My human loves these shoes. We see 3 trusted stores with      │
+│      stock. We propose an immediate deal lock at ₹4,100."               │
+│                                                                         │
+│  🤖 TitanBot:                                                           │
+│     "Counter-offer: We can do ₹4,299 if settled within 120 seconds."    │
+│                                                                         │
+│  🐾 Omni (turning to you):                                              │
+│     "Woof! That saves ₹600 (12% off)! It's within your ₹4,500 budget   │
+│      cap. Shall I lock UK Size 9 and open Razorpay checkout?"           │
+│                                                                         │
+│  👤 You (Voice / Click):                                                │
+│     "Yes Omni, get it!"                                                 │
+│                                                                         │
+│  🐾 Omni:                                                               │
+│     "Done! Selected UK 9, added to cart on Myntra, and generated safe   │
+│      Razorpay test order. Check your screen!" 🎉                        │
+│                                                                         │
+├─────────────────────────────────────────────────────────────────────────┤
+│  [ 🎙️ Voice Active (Silero VAD) ]   [ 🛡️ Spend Cap: ₹5,000 ]   [ 💤 Sleep ] │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🚀 Key Features & Innovations
+## 🎭 Omni's 8 Expressive Pet States
 
-### 1. 🐾 Persistent Desktop Companion (Omni)
-* **Frameless Floating Pet**: Custom transparent Electron window with real-time physics, screen docking, and click-through detection.
-* **Full-Duplex Voice Pipeline**: Low-latency Silero Voice Activity Detection (VAD) with instant barge-in (assistant truncates audio when user interrupts).
-* **Multi-Window Sync**: Native IPC bridge synchronizing floating pet states with the full Buyer Web Dashboard.
+Omni has **34 custom animated emotion rotations** that react to what's happening in real time:
 
-### 2. 🤝 DMCP (DealMesh Commerce Protocol)
-* **Standardized Agent Handshake**: Discovery via `/.well-known/agent-card.json`, offer exchanges, counteroffers, and atomic deal locking.
-* **Zero-Knowledge Negotiation**: Buyer maximum willingness-to-pay and merchant floor prices are private and **never transmitted over the wire**.
-* **Mathematical Concession Curves**: Agents negotiate along polynomial and time-decayed concession curves rather than unpredictable LLM prompt outputs.
-
-### 3. 🛡️ Deterministic Safety Firewalls (No Direct LLM Spending)
-* **Propose-Validate-Execute Model**: LLMs can only propose structured JSON actions (`make_offer`, `counter_offer`, `accept`).
-* **Policy Firewall**: Deterministically enforces user-defined daily spending caps, product match filters, and authorized merchant lists.
-* **Risk Engine**: Blocks price-tampering exploits, duplicate orders, and stale/expired counteroffers.
-
-### 4. 🌐 Real-World Live Market Crawler & Variant Resolution
-* **Dynamic E-Commerce Automation**: Playwright stealth browser driver navigating real stores (Myntra, Nike, Amazon).
-* **Variant Disambiguation Loop**: When shopping apparel/shoes, the crawler automatically detects missing size/color selections, prompts the user via voice or UI, and completes carting seamlessly.
-* **Composite Value Scoring**: Evaluates trust, review depth, delivery window, and 30-day return policy over raw price sorting.
-
-### 5. 💳 Razorpay Test Mode & Recovery Engine
-* **HMAC-SHA256 Signature Verification**: Cryptographically validates payment capture tokens and webhooks (`order.paid`, `payment.failed`).
-* **Bounded Deal Recovery**: Automatically recovers from network hiccups, expired locks, or payment failures without infinite retry loops.
-* **Minted Transaction Passport**: Immutable audit timeline recording every offer, verification check, and settlement event.
+| State | Pet Emotion | What Omni is Doing |
+|:---|:---:|:---|
+| `SLEEPING` | 💤 *Zzz...* | Resting quietly on your taskbar until you speak or click. |
+| `LISTENING` | 👂 *Curious* | Ultra-low latency voice detection with instant speech barge-in. |
+| `SEARCHING` | 👃 *Sniffing* | Sniffing out deals concurrently across 12+ stores in parallel. |
+| `COMPARING` | 🧐 *Thinking* | Ranking real value (speed + returns + seller trust) over raw fake price. |
+| `NEGOTIATING` | ⚡ *Smug & Fast*| Exchanging structured DMCP counter-offers with merchant agents. |
+| `NEED_HELP` | 🐾 *Pleading* | Pauses on shoe/clothing pages to ask: *"Which size should I pick?"* |
+| `PAYING` | 💳 *Focused* | Validates deterministic policy rules and opens Razorpay Test Mode. |
+| `CELEBRATING` | 🎉 *StarStruck*| Deal sealed! Mints your cryptographic Transaction Passport. |
 
 ---
 
-## 📂 Architecture & Monorepo Structure
+## ⚡ The DealMesh Network Architecture
+
+```text
+                           DEALMESH COMMERCE NETWORK
+                                       │
+         ┌─────────────────────────────┴─────────────────────────────┐
+         ▼                                                           ▼
+   BUYER PLATFORM                                              MERCHANT STUDIO
+ ┌──────────────────────┐                                    ┌──────────────────────┐
+ │  🐾 Omni Companion   │                                    │  🏪 TitanBot Agent   │
+ │  • Floating Electron │                                    │  • Floor Margins     │
+ │  • Real-Time Voice   │                                    │  • Concession Curves │
+ │  • Local Budget Cap  │                                    │  • Dynamic Inventory │
+ └──────────┬───────────┘                                    └──────────┬───────────┘
+            │                                                           │
+            ▼                                                           ▼
+     Buyer AI Agent                                              Merchant Agent
+    (Proposes Deals)                                            (Guards Margins)
+            │                                                           │
+            └──────────────► [ DMCP 1.0 SECURE PROTOCOL ] ◄─────────────┘
+                                       │
+                                       ▼
+                     Deterministic Policy & Risk Firewall
+                         (Zero-Knowledge Budget Gates)
+                                       │
+                                       ▼
+                        Headed Live Browser Automation
+                     (Variant Selection: Sizes, Colors)
+                                       │
+                                       ▼
+                         Razorpay Test Mode Settlement
+                                       │
+                                       ▼
+                         Minted Transaction Passport
+```
+
+---
+
+## 🌟 Why DealMesh Wins: 5 Superpowers
+
+### 1. 🤐 Zero-Knowledge Privacy (DMCP Protocol)
+Buyer agents and merchant agents never share raw secrets. The buyer's maximum willingness-to-pay (e.g. ₹5,000) and the merchant's absolute cost floor (e.g. ₹3,999) are **never transmitted**. Agents only exchange formal signed proposals until an equilibrium is reached.
+
+### 2. 🛑 Deterministic Safety (No LLM Financial Runaways)
+An LLM is never given a credit card or allowed to make purchases directly! The AI can only **propose** actions. Hardcoded deterministic policy and risk engines independently verify budgets, spending limits, merchant trust scores, and human confirmation before a single rupee is touched.
+
+### 3. 👟 Real-World Variant Disambiguation
+Unlike generic web scrapers that crash when a site requires shoe sizes, DealMesh uses a headed Playwright automation engine with a built-in suspension loop:
+1. Navigates directly to the live product (Myntra, Nike, Amazon).
+2. Detects available in-stock variant grids (UK 7, 8, 9, 10, 11).
+3. Omni speaks: *"Which size should I grab for you?"*
+4. You reply *"Size 9"*, and Omni clicks size 9 and adds it to the cart!
+
+### 4. 🎙️ High-Speed Voice Pipeline with Barge-In
+Built with client-side Voice Activity Detection (VAD). You can interrupt Omni mid-sentence ("barge-in"), and the assistant instantly cuts its audio playback and listens without echo or audio loops.
+
+### 5. 💳 Razorpay Test Mode & Bounded Self-Healing
+Seamlessly integrated with Razorpay Test Mode for test checkouts with HMAC-SHA256 signature verification. If a network glitch occurs or an inventory lock times out, the **Autonomous Recovery Agent** steps in to safely renew the lock or roll back cleanly.
+
+---
+
+## 📁 Repository Structure
 
 ```text
 DealMesh/
 ├── apps/
-│   ├── desktop/             # Electron + React floating desktop companion
-│   │   ├── electron/        # Main process, transparent overlay & native IPC
-│   │   └── src/             # Companion UI, sound effects, dock physics & VAD
-│   ├── buyer-web/           # Full Buyer Portal, split-screen live stream & search
-│   └── merchant-web/        # Merchant Studio (KPIs, floor margins & live audit)
+│   ├── desktop/             # 🐾 Electron + React floating desktop companion
+│   │   ├── electron/        # Transparent overlay window, click-through & IPC
+│   │   └── src/             # Omni sprite animations, physics, VAD & settings
+│   ├── buyer-web/           # 🟣 Buyer Web Dashboard & split-screen stream
+│   └── merchant-web/        # 🟠 Merchant Studio (KPIs, floor rules & audit)
 ├── backend/
 │   ├── app/
-│   │   ├── api/             # FastAPI REST & WebSocket routers (DMCP, voice, pet)
+│   │   ├── api/             # FastAPI REST & WebSocket routers (DMCP, pet, voice)
 │   │   ├── agents/          # Buyer, Merchant, Ranking & Recovery agents
-│   │   ├── commerce/        # Live Playwright crawler & Firecrawl integration
+│   │   ├── commerce/        # Live Playwright crawler & variant selector
 │   │   ├── security/        # Deterministic Policy, Risk & Trust firewalls
 │   │   └── database/        # Async SQLAlchemy models & mock store dataset
-│   └── tests/               # Pytest automated test suite
-├── .env.example             # Template for local environment configuration
+├── .env.example             # Safe template for local API keys
 ├── .gitignore               # Multi-layer protection (secrets, node_modules, cache)
-└── package.json             # Monorepo management scripts
+├── package.json             # Monorepo scripts
+├── start_dealmesh.bat       # 🚀 One-click Windows launch script
+└── README.md
 ```
 
 ---
 
-## ⚡ Quick Start Guide
+## 🚀 Quick Start (Up in 60 Seconds!)
 
 ### Prerequisites
 * **Python 3.10+**
@@ -115,106 +176,74 @@ DealMesh/
 
 ---
 
-### Step 1: Clone and Configure Environment
+### Step 1: Clone & Configure `.env`
 
 ```bash
 git clone https://github.com/spidy52/DealMesh.git
 cd DealMesh
 
-# Copy environment template
+# Copy the safe template
 cp .env.example .env
 ```
 
-Open `.env` and configure your API keys (all optional / test credentials supported):
-```ini
-# OpenRouter / LLM (Optional: fallback deterministic agents built-in)
-OPENROUTER_API_KEY=your_openrouter_api_key_here
-
-# Razorpay Test Mode Credentials
-RAZORPAY_KEY_ID=rzp_test_your_key_id_here
-RAZORPAY_KEY_SECRET=your_razorpay_secret_here
-
-# Live Web Search (Firecrawl / Playwright)
-FIRECRAWL_API_KEY=your_firecrawl_api_key_here
-```
+*(Optional)* Add your free OpenRouter or Razorpay test keys in `.env`. DealMesh has built-in offline fallbacks, so it works out-of-the-box!
 
 ---
 
-### Step 2: Install Dependencies & Seed Database
+### Step 2: Install Dependencies & Seed Store Data
 
 ```bash
-# 1. Install root & frontend dependencies
+# 1. Install frontend monorepo packages
 npm install
 
-# 2. Install backend Python dependencies
+# 2. Install backend Python packages
 pip install -r backend/requirements.txt
 
-# 3. Seed demo store data (12 merchants + 100+ products)
+# 3. Seed demo database with 12 stores & 100+ products
 python -m backend.app.database.seed
 ```
 
 ---
 
-### Step 3: Run the Complete Full Stack
-
-Run all services concurrently in a single command:
+### Step 3: Run the Whole Universe with One Command!
 
 ```bash
 npm run dev:all
 ```
 
-This launches:
-* 🟢 **Backend API & WebSockets**: `http://localhost:8000`
-* 🟣 **Buyer Web Portal**: `http://localhost:5173`
-* 🟠 **Merchant Studio**: `http://localhost:5174`
-* 🐾 **Electron Desktop Pet Companion**: Native Windows floating assistant
+*Or double-click **`start_dealmesh.bat`** on Windows!*
 
-*(Alternatively, run services individually via `npm run dev:backend`, `npm run dev:buyer`, `npm run dev:merchant`, or `npm run dev:desktop`)*.
-
----
-
-## 🧪 Running Automated Tests
-
-Run backend tests verifying protocol boundaries, policy engines, and payment security:
-
-```bash
-npm run test:backend
-```
-
-```text
-======================= 17 passed in 4.23s =======================
-✓ test_policy_firewall_blocks_unauthorized_spend
-✓ test_zero_leakage_private_reservation_prices
-✓ test_dmcp_negotiation_round_concessions
-✓ test_risk_engine_tamper_detection
-✓ test_razorpay_hmac_signature_verification
-✓ test_bounded_recovery_flow
-```
+This spins up:
+* 🟢 **Backend API & WebSockets**: [`http://localhost:8000`](http://localhost:8000)
+* 🟣 **Buyer Web Portal**: [`http://localhost:5173`](http://localhost:5173)
+* 🟠 **Merchant Studio**: [`http://localhost:5174`](http://localhost:5174)
+* 🐾 **Electron Desktop Pet Companion**: Native floating Omni on your screen!
 
 ---
 
-## 🎭 5-Minute Live Demo Flow
+## 🎬 5-Minute Hackathon Demo Script
 
-| Step | Action | What to Observe |
+| Time | Action | What Happens / What to Tell the Judges |
 |:---|:---|:---|
-| **1. Voice Intent** | Speak to Omni: *"Find me Nike running shoes under ₹5,000"* | Omni animates, parses intent with local VAD, and queries the live market. |
-| **2. Multi-Store Search** | System searches 12+ stores simultaneously | Displays real-time store availability with trust & value scores. |
-| **3. Live Web Automation** | Select a store (e.g. Myntra) | Real headed browser launches, routes to live search, and detects product sizes. |
-| **4. Variant Resolution** | Omni asks: *"Which size should I pick: 8, 9, or 10?"* | Say *"UK 9"*. Omni automatically clicks size 9 and adds to bag on-screen. |
-| **5. DMCP Negotiation** | Open Split-Screen view | Watch Omni negotiate price concessions with TitanBot in structured DMCP rounds. |
-| **6. Deterministic Checkout**| Complete test purchase | Policy engine validates caps $\rightarrow$ Razorpay modal opens $\rightarrow$ Transaction Passport is minted. |
+| **0:00 - 0:30** | **Meet Omni** | Omni sits resting on screen. Say: *"Omni, find Nike running shoes under ₹5,000."* Omni wakes up with an animation and acknowledges verbally! |
+| **0:30 - 1:15** | **12-Store Search** | Omni queries 12 stores concurrently. Show the trust & value rankings—not just cheapest, but best return policy and authentic reviews. |
+| **1:15 - 2:15** | **Live Browser Navigation** | Select Myntra. Watch real Playwright launch headed browser, navigate to the shoe, and discover the size grid. |
+| **2:15 - 2:45** | **Variant Disambiguation** | Omni asks: *"Which size should I pick: 8, 9, or 10?"* Say: *"UK 9"*. Omni clicks Size 9 and adds to bag on-screen! |
+| **2:45 - 3:45** | **DMCP Negotiation Arena** | Open Split-Screen view. Watch Omni negotiate price concessions with TitanBot in 3 rapid structured rounds without leaking budget ceilings! |
+| **3:45 - 4:30** | **Policy Gate & Checkout** | Click Buy. Deterministic policy firewall approves budget $\rightarrow$ Razorpay Test Mode checkout opens $\rightarrow$ Payment confirmed! |
+| **4:30 - 5:00** | **Transaction Passport** | View the minted cryptographic Transaction Passport proving every round, policy check, and settlement event. Omni returns to sleep happily! 💤 |
 
 ---
 
-## 🔒 Security & Privacy Commitments
+## 🛡️ Security & Privacy Guarantees
 
-1. **Zero Data Leakage**: Private buyer caps and merchant profit margins are kept strictly local.
-2. **Deterministic Spending Caps**: No LLM can authorize funds without policy pass and human confirmation.
-3. **Cryptographic Integrity**: All DMCP offers are versioned with cryptographic hashes and expiring TTLs.
-4. **Local Hardware Privacy**: Audio activity is gated with client-side VAD, processing speech only when active.
+1. 🔒 **Zero Data Leakage**: Private reservation prices and margin limits are strictly local.
+2. 🛡️ **No Direct LLM Spending**: Hardcoded policy firewalls block unauthorized transactions.
+3. 📜 **Tamper-Proof Offers**: Cryptographically signed offer hashes with expiring time-to-live (TTL).
+4. 🔇 **Local Audio Gating**: Client-side VAD processes voice only when you speak.
 
 ---
 
 ## 📜 License
 
-Distributed under the **MIT License**. See `LICENSE` for more information.
+Distributed under the **MIT License**. Created with ❤️ for **Track 01: AI Growth & Agentic Commerce**.
