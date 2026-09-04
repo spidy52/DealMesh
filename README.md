@@ -17,31 +17,20 @@
 
 ---
 
-## 🐶 Meet Omni: Your Interactive Git Pet Companion!
-
-Omni is the live AI commerce pet you see at the bottom of the DealMesh website and floating on your desktop. Omni roams around, checks deals, negotiates prices, and sleeps when idle.
+## 🐶 Meet Omni: The Live Interactive Git Pet!
 
 <div align="center">
 
-### 🐾 Live Interactive Companion Preview
+<p><em>Omni roams around in his area and sleeps while guarding your deals. <strong>Touch or Click Omni below to poke him!</strong></em></p>
 
-<!-- Default Floating & Roaming State -->
-<img src="./docs/assets/omni-sleeping.svg" width="460" alt="Omni Roaming & Sleeping peacefully in workspace" />
+<!-- SINGLE UNIFIED INTERACTIVE PET (Roams & sleeps; gets angry when touched/clicked) -->
+<img src="./docs/assets/omni-pet.svg" width="540" alt="Interactive Omni Pet - Roams, Sleeps, and gets angry when poked!" />
 
-<br/>
-
-<details>
-<summary><b>👉 😴 Omni is Sleeping... Click here to POKE OMNI! 👈</b></summary>
-<br/>
-
-<!-- Angry Poke State Matching Website -->
-<img src="./docs/assets/omni-angry.svg" width="480" alt="Angry Omni - Do not poke me! Say Hey Omni if you want a search!" />
-
-<br/>
+<br/><br/>
 
 > ### 🤖 *"If you want to use me, use the above repo!"*
 > 
-> Omni isn't just an image—Omni is a **fully functional desktop companion and web assistant** running on your computer!  
+> Omni isn't just a static badge—he is a **living desktop companion and autonomous web buyer**!  
 > To bring Omni alive on your screen right now:
 > 
 > ```bash
@@ -50,11 +39,7 @@ Omni is the live AI commerce pet you see at the bottom of the DealMesh website a
 > npm install && pip install -r backend/requirements.txt
 > npm run dev:all
 > ```
-> *Say **"Hey Omni"** or click to begin autonomous deal discovery!*
-
-</details>
-
-<p><em>(Omni roams around smoothly, breathes, and dreams of deals. Click the poke trigger above to wake him up!)</em></p>
+> *Say **"Hey Omni"** or click to start autonomous discovery, live negotiation, and verified purchase!*
 
 </div>
 
